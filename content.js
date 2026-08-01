@@ -2,25 +2,50 @@ console.log("RM-AI");
 
 async function getSetting(key) {
     const settings = await chrome.storage.sync.get('settings');
-    if (!settings) return this.#settings = default_settings;  
-    this.#settings = settings;
+    return settings.settings[key].value;
 }
 
+async function onPageLoad() {
+    const css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = chrome.runtime.getURL('content.css');
+    document.head.append(css);
+}
+
+// Check if DOM is already parsed; if not, add an event listener
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', onPageLoad);
+} else {
+    onPageLoad();
+}
+
+
 async function mutation_observer_callback() {
+    const YzCcne_elements = document.querySelectorAll('.YzCcne');
+    if (YzCcne_elements.length === 0) return;
+
     if (await getSetting('rm-google-overview')) {
-        const YzCcne = document.querySelector('.YzCcne');
+        for (const YzCcne of YzCcne_elements) {
 
-        if (!YzCcne) return;
+            if (YzCcne.getAttribute('data-rm-processed') === "true") continue;
 
-        if (await getSetting('google-overview-note')) {
-            YzCcne.classList.remove('YzCcne');
-            YzCcne.innerHTML = `
-                <button style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; font-family: 'Courier New', Courier, monospace; font-size: 14px; font-weight: 600; color: #121212; background-color: #10b981; border: none; border-radius: 6px; cursor: pointer;">
-                    Click Me
-                </button>
-            `;
-        } else {
-            YzCcne.remove();
+            YzCcne.setAttribute('hidden', true);
+            YzCcne.setAttribute('data-rm-processed', true);
+
+            if (await getSetting('google-overview-note')) {
+
+                const note_btn = document.createElement('div');
+                note_btn.classList.add('show_overview_btn');
+                note_btn.innerText = 'Show AI overview.';
+
+                note_btn.addEventListener('click', () => {
+                    note_btn.remove();
+                    YzCcne.removeAttribute('hidden');
+                });
+
+                YzCcne.before(note_btn);
+
+            }
         }
     }
     
