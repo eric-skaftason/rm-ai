@@ -1,0 +1,71 @@
+:root {
+    --bg-main: #121212;
+    --bg-secondary: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --accent: #10b981;
+    --border-color: #2c2c2c;
+    --border-color-light: #6d6c6c;
+}
+
+* {
+    font-family: 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+
+    color: var(--text-primary);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--bg-main);
+
+    width: 400px;
+    height: 500px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.content {
+    margin: 20px;
+}
+
+.options {
+    margin-top: 20px;
+}
+
+
+.toggle_option {
+    display: flex;
+    margin: 10px;
+}
+
+
+.toggle_option .checkbox {
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+
+    cursor: pointer;
+
+    border: 1px solid var(--border-color-light);
+}
+
+.toggle_option .checkbox:hover {
+    border-color: var(--accent);
+}
+
+.toggle_option .checkbox.filled {
+    background: var(--accent);
+}
+
+
+.toggle_option .desc {
+    display: flex;
+    align-items: center;
+
+    margin-left: 10px;
+}
