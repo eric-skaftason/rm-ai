@@ -2,25 +2,60 @@
 	"manifest_version": 3,
 	"name": "rm-ai",
 	"version": "1.0.0",
-	"description": "A basic example extension with only required keys",
+	"description": "Encourages human thinking by removing unnecessary AI from google.com and making outsourcing the thinking process to AI more difficult.",
 	"content_scripts": [
 		{
 			"matches": ["https://www.google.com/*"],
 			"js": ["rmgai.js"],
 			"run_at": "document_start"
+		},
+		{
+			"matches": [
+				"https://chatgpt.com/*",
+				"https://claude.ai/*",
+				"https://gemini.google.com/*",
+				"https://copilot.microsoft.com/*",
+				"https://perplexity.ai/*",
+				"https://chat.deepseek.com/*",
+				"https://grok.com/*",
+				"https://chat.mistral.ai/*",
+				"https://huggingface.co/chat/*",
+				"https://lmarena.ai/*",
+				"https://openwebui.com/*",
+				"https://lobechat.com/*",
+				"https://librechat.ai/*"
+			],
+			"js": ["ai_pause.js"],
+			"run_at": "document_start"
 		}
 	],
 	"web_accessible_resources": [
 		{
-		"resources": ["rmgai.css"],
-		"matches": ["https://*.google.com/*"]
+			"resources": ["rmgai.css"],
+			"matches": ["https://*.google.com/*"]
+		},
+		{
+			"resources": ["ai_pause.css"],
+			"matches": [
+			"https://chatgpt.com/*",
+			"https://claude.ai/*",
+			"https://gemini.google.com/*",
+			"https://copilot.microsoft.com/*",
+			"https://perplexity.ai/*",
+			"https://chat.deepseek.com/*",
+			"https://grok.x.ai/*",
+			"https://chat.mistral.ai/*",
+			"https://huggingface.co/*",
+			"https://lmarena.ai/*",
+			"https://openwebui.com/*",
+			"https://lobechat.com/*",
+			"https://librechat.ai/*"
+			]
 		}
 	],
 	"permissions": [
 		"scripting",
 		"activeTab",
-		"tabCapture",
-		"offscreen",
 		"storage"
 	],
 	"action": {

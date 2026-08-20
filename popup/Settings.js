@@ -1,28 +1,47 @@
 const settings_order = [
-    "rm-google-overview", "google-overview-note", "google-ai-mode-buttons"
+    "heading-ai-settings", "rm-google-overview", "google-ai-mode-buttons", "ai-pause"
 ];
 chrome.storage.sync.set({ settings_order: settings_order });
 
 
 const default_settings = {
+    "heading-ai-settings": {
+        type: "heading",
+        display_text: "AI Settings"
+    },
     "rm-google-overview": {
         value: true,
         type: "toggle",
         display_text: "Remove Google AI Overview"
     },
-    "google-overview-note": {
-        value: true,
-        type: "toggle",
-        restrictions: {
-            requires: ["rm-google-overview"]
-        },
-        display_text: "Add Button to Show AI Overview Once"
-    },
+    // "google-overview-note": {
+    //     value: true,
+    //     type: "toggle",
+    //     restrictions: {
+    //         requires: ["rm-google-overview"]
+    //     },
+    //     display_text: "Add Button to Show AI Overview Once"
+    // },
     "google-ai-mode-buttons": {
         value: true,
         type: "toggle",
         display_text: "Remove AI mode buttons"
-    }
+    },
+    "ai-pause": {
+        value: true,
+        type: "toggle",
+        display_text: "Pause before loading an LLM site."
+    },
+    // "ai-pause-list": {
+    //     value: [""],
+    //     type: "list",
+    //     display_text: "Specify which AI sites to apply pause."
+    // },
+
+    // "heading-general-productivity-settings": {
+    //     type: "heading",
+    //     display_text: "General Productivity Settings"
+    // }
 
 
 };
