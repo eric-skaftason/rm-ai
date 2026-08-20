@@ -1,5 +1,5 @@
 const settings_order = [
-    "rm-google-overview", "google-overview-note"
+    "rm-google-overview", "google-overview-note", "google-ai-mode-buttons"
 ];
 chrome.storage.sync.set({ settings_order: settings_order });
 
@@ -17,6 +17,11 @@ const default_settings = {
             requires: ["rm-google-overview"]
         },
         display_text: "Add Button to Show AI Overview Once"
+    },
+    "google-ai-mode-buttons": {
+        value: true,
+        type: "toggle",
+        display_text: "Remove AI mode buttons"
     }
 
 

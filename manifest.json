@@ -3,19 +3,16 @@
 	"name": "rm-ai",
 	"version": "1.0.0",
 	"description": "A basic example extension with only required keys",
-	"background": {
-	"service_worker": "background.js"
-	},
 	"content_scripts": [
 		{
 			"matches": ["https://www.google.com/*"],
-			"js": ["content.js"],
+			"js": ["rmgai.js"],
 			"run_at": "document_start"
 		}
 	],
 	"web_accessible_resources": [
 		{
-		"resources": ["content.css"],
+		"resources": ["rmgai.css"],
 		"matches": ["https://*.google.com/*"]
 		}
 	],

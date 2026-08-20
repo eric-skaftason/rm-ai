@@ -1,7 +1,14 @@
 /* Show AI overview button */
 
 .show_overview_btn {
-    width: 200px;
+    /* width: 200px; */
+    /* width: 100%; */
+
+
+    /* grid-column: 3 / span 8; */
+
+    grid-column: 3 span 8;
+
     height: 50px;
 
     display: flex;
@@ -13,13 +20,15 @@
     font-family: 'Courier New', Courier, monospace;
     font-size: 14px;
     font-weight: bold;
-    color: #121212;
-    background-color:#10cf90;
-    border: none;
-    border-radius: 6px;
+    color: white;
+    /* background-color:#10cf90; */
+
+
+    border: 1px solid white;
+    /* border-radius: 6px; */
     cursor: pointer;
 }
 
 .show_overview_btn:hover {
-    background-color:#10b981;
+    text-decoration: underline;
 }
