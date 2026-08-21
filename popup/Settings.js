@@ -1,14 +1,14 @@
 const settings_order = [
-    "heading-ai-settings", "rm-google-overview", "google-ai-mode-buttons", "ai-pause"
+    "rm-google-overview", "google-ai-mode-buttons", "ai-pause"
 ];
 chrome.storage.sync.set({ settings_order: settings_order });
 
 
 const default_settings = {
-    "heading-ai-settings": {
-        type: "heading",
-        display_text: "AI Settings"
-    },
+    // "heading-ai-settings": {
+    //     type: "heading",
+    //     display_text: "AI Settings"
+    // },
     "rm-google-overview": {
         value: true,
         type: "toggle",
