@@ -14,7 +14,7 @@ Demo video is available in the project location: `/demo/demo.mp4`
 - Remove AI overview from Google search
 - Remove "AI mode" buttons from google.com
 - Add a 20 second pause before loading an LLM site
-- settings menu popup to toggle each feature independantly
+- settings menu popup to toggle each feature independently
 
 The pause delay applies to major LLM sites including:
 - ChatGPT (`chatgpt.com`)
